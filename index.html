@@ -26,14 +26,14 @@
             display: flex;
             align-items: center;
         }
-        .input-field label {
-            margin-right: 10px;
-        }
         .input-field input {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
             box-sizing: border-box;
+        }
+        .input-field label {
+            margin-left: 10px;
         }
         .calculate-button {
             width: 100%;
@@ -53,44 +53,44 @@
     <div class="calculator">
         <h1>Calculator</h1>
         <div class="input-field">
-            <label for="number1">1.</label>
             <input type="number" id="number1" placeholder="Enter a number">
+            <label for="number1">1.</label>
         </div>
         <div class="input-field">
-            <label for="number2">2.</label>
             <input type="number" id="number2" placeholder="Enter a number">
+            <label for="number2">2.</label>
         </div>
         <div class="input-field">
-            <label for="number3">3.</label>
             <input type="number" id="number3" placeholder="Enter a number">
+            <label for="number3">3.</label>
         </div>
         <div class="input-field">
-            <label for="number4">4.</label>
             <input type="number" id="number4" placeholder="Enter a number">
+            <label for="number4">4.</label>
         </div>
         <div class="input-field">
-            <label for="number5">5.</label>
             <input type="number" id="number5" placeholder="Enter a number">
+            <label for="number5">5.</label>
         </div>
         <div class="input-field">
-            <label for="number6">6.</label>
             <input type="number" id="number6" placeholder="Enter a number">
+            <label for="number6">6.</label>
         </div>
         <div class="input-field">
-            <label for="number7">7.</label>
             <input type="number" id="number7" placeholder="Enter a number">
+            <label for="number7">7.</label>
         </div>
         <div class="input-field">
-            <label for="number8">8.</label>
             <input type="number" id="number8" placeholder="Enter a number">
+            <label for="number8">8.</label>
         </div>
         <div class="input-field">
-            <label for="number9">9.</label>
             <input type="number" id="number9" placeholder="Enter a number">
+            <label for="number9">9.</label>
         </div>
         <div class="input-field">
-            <label for="number10">10.</label>
             <input type="number" id="number10" placeholder="Enter a number">
+            <label for="number10">10.</label>
         </div>
         <button class="calculate-button" onclick="calculateResult()">Calculate</button>
         <div class="result" id="result"></div>
@@ -120,6 +120,22 @@
 
             document.getElementById('result').innerText = 'Result: ' + result;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach((input, index) => {
+                input.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        if (index < inputs.length - 1) {
+                            inputs[index + 1].focus();
+                        } else {
+                            calculateResult();
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
