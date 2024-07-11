@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .input-field {
+            margin-bottom: 10px;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .calculate-button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <div class="input-field">
+            <input type="number" id="number1" placeholder="Enter a number">
+        </div>
+        <div class="input-field">
+            <input type="number" id="number2" placeholder="Enter a number">
+        </div>
+        <div class="input-field">
+            <input type="number" id="number3" placeholder="Enter a number">
+        </div>
+        <button class="calculate-button" onclick="calculateSum()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateSum() {
+            var num1 = parseFloat(document.getElementById('number1').value) || 0;
+            var num2 = parseFloat(document.getElementById('number2').value) || 0;
+            var num3 = parseFloat(document.getElementById('number3').value) || 0;
+
+            var sum = num1 + num2 + num3;
+
+            document.getElementById('result').innerText = 'Result: ' + sum;
+        }
+    </script>
+</body>
+</html>
