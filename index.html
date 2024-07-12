@@ -9,139 +9,55 @@
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167x167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .calculator {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .input-field {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .input-field input {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-        .input-field label {
-            margin-left: 10px;
-        }
-        .calculate-button {
-            width: 100%;
-            padding: 10px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .result {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="calculator">
         <h1>Calculator</h1>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number1" placeholder="Enter a number">
+            <input type="number" id="number1" placeholder="Enter a number">
             <label for="number1">پارەی ماڵەوە لە ئێستادا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number2" placeholder="Enter a number">
+            <input type="number" id="number2" placeholder="Enter a number">
             <label for="number2">پارەی ماڵەوە لە کۆتایدا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number3" placeholder="Enter a number">
+            <input type="number" id="number3" placeholder="Enter a number">
             <label for="number3">بڕی مەسرەف؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number4" placeholder="Enter a number">
+            <input type="number" id="number4" placeholder="Enter a number">
             <label for="number4">هەیەی بەرهەم لە سەرەتا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number5" placeholder="Enter a number">
+            <input type="number" id="number5" placeholder="Enter a number">
             <label for="number5">هەیەی بەرهەم لە کۆتایی؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number6" placeholder="Enter a number">
+            <input type="number" id="number6" placeholder="Enter a number">
             <label for="number6">بڕی قازانجی کۆمپانیا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number7" placeholder="Enter a number">
+            <input type="number" id="number7" placeholder="Enter a number">
             <label for="number7">قەرزدارەکان لە سەرەتا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number8" placeholder="Enter a number">
+            <input type="number" id="number8" placeholder="Enter a number">
             <label for="number8">قەرزدارەکان لە کۆتایی؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number9" placeholder="Enter a number">
+            <input type="number" id="number9" placeholder="Enter a number">
             <label for="number9">داواکارەکان لە سەرەتا؟</label>
         </div>
         <div class="input-field">
-            <input type="number" inputmode="numeric" id="number10" placeholder="Enter a number">
+            <input type="number" id="number10" placeholder="Enter a number">
             <label for="number10">داواکارەکان لە کۆتایی؟</label>
         </div>
         <button class="calculate-button" onclick="calculateResult()">Calculate</button>
         <div class="result" id="result"></div>
     </div>
 
-    <script>
-        function calculateResult() {
-            var num1 = parseFloat(document.getElementById('number1').value) || 0;
-            var num2 = parseFloat(document.getElementById('number2').value) || 0;
-            var num3 = parseFloat(document.getElementById('number3').value) || 0;
-            var num4 = parseFloat(document.getElementById('number4').value) || 0;
-            var num5 = parseFloat(document.getElementById('number5').value) || 0;
-            var num6 = parseFloat(document.getElementById('number6').value) || 0;
-            var num7 = parseFloat(document.getElementById('number7').value) || 0;
-            var num8 = parseFloat(document.getElementById('number8').value) || 0;
-            var num9 = parseFloat(document.getElementById('number9').value) || 0;
-            var num10 = parseFloat(document.getElementById('number10').value) || 0;
-
-            var A = num1 - num2;
-            var B = num3;
-            var C = num5 - num4;
-            var D = num6;
-            var E = num8 - num7;
-            var F = num10 - num9;
-
-            var result = D + F + A - B - C - E;
-
-            document.getElementById('result').innerText = 'Result: ' + result;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var inputs = document.querySelectorAll('input[type="number"]');
-            inputs.forEach((input, index) => {
-                input.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter') {
-                        event.preventDefault();
-                        if (index < inputs.length - 1) {
-                            inputs[index + 1].focus();
-                        } else {
-                            calculateResult();
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
