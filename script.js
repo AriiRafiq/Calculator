@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     calculateResult();
                 }
+		// Scroll the container so the next input is visible
+                container.scrollTop = input.offsetTop - container.offsetTop;
             }
         });
     });
