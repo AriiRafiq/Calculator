@@ -36,4 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+	
+// Scroll container to bottom when result is visible
+const observer = new MutationObserver((mutations) => {
+	mutations.forEach((mutation) => {
+		if (mutation.target.style.display !== 'none' && mutation.target.textContent !== '') {
+			const container = document.querySelector('.container');
+			container.scrollTop = container.scrollHeight;
+		}
+	});
+});
+
+observer.observe(result, { attributes: true, childList: true, subtree: true });
+	
 });
